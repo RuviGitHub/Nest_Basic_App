@@ -5,7 +5,6 @@ import { TypeOrmConfigService } from './config/typeorm.config';
 import { LoggingMiddleware } from './common/middleware/logging.middleware';
 import { ExpenseModule } from './expense/expense.module';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 
 @Module({
@@ -18,7 +17,7 @@ import { AppService } from './app.service';
     ExpenseModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
