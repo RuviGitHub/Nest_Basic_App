@@ -2,7 +2,6 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { IsString, IsInt, Min, IsBoolean, validateSync } from 'class-validator';
-import { Expense } from 'src/expense/entities/expense.entity';
 
 class DatabaseConfig {
     @IsString()
@@ -80,7 +79,7 @@ export class TypeOrmConfigService {
             username: this.configService.get<string>('DB_USERNAME', 'postgres'),
             password: this.configService.get<string>('DB_PASSWORD', 'postgres'),
             database: this.configService.get<string>('DB_NAME', 'expen6'),
-            entities: [Expense],
+            entities: [],
             synchronize: this.configService.get<boolean>('DB_SYNCHRONIZE', false),
             logging: ['error', 'warn'],
             maxQueryExecutionTime: 1000,
